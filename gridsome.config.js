@@ -8,9 +8,10 @@ module.exports = {
             postcss: {
                 plugins: [
                     require('tailwindcss'),
-                    ...process.env.NODE_ENV === 'production' ? [
-                        require('@fullhuman/postcss-purgecss')({
-                            content: [ './src/**/*.{vue,js,jsx,html,pug,md,svg}' ],
+                    ...process.env.NODE_ENV === 'production'
+                        ? [ require('@fullhuman/postcss-purgecss')({
+                            content: ['./src/**/*.{vue,js,html,yaml,svg}'],
+                            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
                             whitelist: [
                                 'html',
                                 'body',
@@ -22,9 +23,8 @@ module.exports = {
                                 'active',
                                 'active--exact',
                             ],
-                            defaultExtractor: content => content.match( /[A-Za-z0-9-_:/]+/g ) || [],
-                        }),
-                    ] : [],
+                        }), ]
+                        : [],
                     require('autoprefixer'),
                 ],
             },
