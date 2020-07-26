@@ -1,7 +1,7 @@
 <template>
     <BaseLayout>
 
-        <h1>{{ $static.metaData.siteName }}</h1>
+        <h1>{{ $static.metadata.siteName }}</h1>
 
         <KitchenSink></KitchenSink>
 
@@ -10,7 +10,7 @@
 
 <static-query>
 query {
-    metaData {
+    metadata {
         siteName
     }
 }
@@ -24,7 +24,7 @@ export default {
     components: { KitchenSink },
     metaInfo() {
         return {
-            title: this.$static.metaData.siteName
+            title: this.$static.metadata.siteName
         }
     }
 }
