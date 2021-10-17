@@ -1,10 +1,11 @@
 module.exports = {
-  purge: [ './src/**/*.{vue,js,html,yaml,json,svg}' ],
+  mode: 'jit',
+  purge: ['./src/**/*.{vue,js,md,svg}'],
   theme: {
     extend: {
       colors: {
         inherit: 'inherit',
-        transparent: 'transparent',
+        transparent: 'rgba(255, 255, 255, 0)',
       },
     },
     screens: {
